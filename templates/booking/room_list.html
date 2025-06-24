@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Наші номери</h1>
+
+{% for room in room_list %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{room.image.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{room.name}}</h5>
+            <p class="card-text">{{room.price}} грн</p>
+            <a href="#" class="btn btn-primary">Детальніше</a>
+        </div>
+    </div>
+    {% empty %}
+    <li class="list-group-item"> Немає кімнат. </li>
+    {% endfor %}
+
+
+
+{% endblock %}

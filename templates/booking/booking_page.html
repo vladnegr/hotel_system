@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Бронювання номера</h2>
+
+<div class="row row-cols-1 row-cols-md-2">
+    <div class="col">
+        <div class="card" >
+            <img src="{{room.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h3 class="card-title">Номер {{room.name}}
+                    <span class="badge rounded-pill text-bg-info">{{room.type_room}}</span>
+                </h3>
+                <h5 class="card-text text-primary">{{room.price}} грн/доба</h5>
+                <span class="badge rounded-pill text-bg-secondary">Місць: {{room.places}}</span>
+                <p class="card-text">{{room.description}} </p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_div}}
+
+            <button type="submit" class="btn btn-light my-4 btn-lg">Забронювати</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
